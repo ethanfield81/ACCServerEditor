@@ -201,7 +201,7 @@ class settingsJSON():
 class eventJSON():
 
     def __init__(self):
-        self.x = { #sessions is a list of dictionaries
+        self.x = { #sessions is a list of Session objects
             "track": "spa",
             "preRaceWaitingTimeSeconds": 60,
             "sessionOverTimeSeconds": 120,
@@ -210,34 +210,20 @@ class eventJSON():
             "rain": 0.0,
             "weatherRandomness": 1,
             "configVersion": 1,
-            "sessions": [{
-                "hourOfDay": 10,
-                "dayOfWeekend": 1,
-                "timeMultiplier": 1,
-                "sessionType": "P",
-                "sessionDurationMinutes": 20
-                },{
-                "hourOfDay": 17,
-                "dayOfWeekend": 2,
-                "timeMultiplier": 8,
-                "sessionType": "Q",
-                "sessionDurationMinutes": 10
-                },{
-                "hourOfDay": 16,
-                "dayOfWeekend": 3,
-                "timeMultiplier": 3,
-                "sessionType": "Q",
-                "sessionDurationMinutes": 20
-                }]}
+            "sessions": [session("P", "Default Practice"), session("Q", "Default Qualifying"), session("R", "Default Race")]
+            }
 
     def print(self):
-        print(json.dumps(self.x))
+        printObj = self.x
+        for i in length(self.x["sessions"]):
+            printObj["sessions"][i] = self.x["sessions"][i].print()
+        print(json.dumps(printObj))
 
     def save(self,location):
         filename = "event.json"
         try:
             file = open(filename, "w")
-            file.write(json.dumps(self.x))
+            file.write(json.dumps(print(self)))
             file.close()
         except:
             print("error opening file")
@@ -297,3 +283,64 @@ class eventJSON():
     # 
 
 class session():
+    def __init__(self, sessionType, nickname):
+        self.name = nickname
+        if sessionType == "P":
+            self.x={
+                "hourOfDay": 10,
+                "dayOfWeekend": 2,
+                "timeMultiplier": 1,
+                "sessionType": "P",
+                "sessionDurationMinutes": 10
+                }
+        elif sessionType == "Q":
+            self. x ={
+                "hourOfDay": 17,
+                "dayOfWeekend": 2,
+                "timeMultiplier": 1,
+                "sessionType": "Q",
+                "sessionDurationMinutes": 10
+                }
+        elif sessionType == "R":
+            self.x = {
+                "hourOfDay": 16,
+                "dayOfWeekend": 3,
+                "timeMultiplier": 1,
+                "sessionType": "R",
+                "sessionDurationMinutes": 20
+                }
+        else:
+            print("SessionTypeError")
+
+    def print(self):
+        print(json.dumps(self.x))
+
+    def gethourOfDay(self):
+        print(self.x["hourOfDay"])
+
+    def sethourOfDay(self, newTime):
+        self.x["hourOfDay"] = newTime
+
+    def getdayOfWeekend(self):
+        print(self.x["dayOfWeekend"])
+
+    def setdayOfWeekend(self, newTime):
+        self.x["dayOfWeekend"] = newTime
+     
+    def gettimeMultiplier(self):
+        print(self.x["timeMultiplier"])
+
+    def settimeMultiplier(self, newTime):
+        self.x["timeMultiplier"] = newTime
+
+    def getsessionType(self):
+        print(self.x["sessionType"])
+
+    def setsessionType(self, newTime):
+        self.x["sessionType"] = newTime
+     
+    def getsessionDurationMinutes(self):
+        print(self.x["sessionDurationMinutes"])
+
+    def setsessionDurationMinutes(self, newTime):
+        self.x["sessionDurationMinutes"] = newTime
