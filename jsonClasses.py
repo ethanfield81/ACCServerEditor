@@ -201,7 +201,7 @@ class settingsJSON():
 class eventJSON():
 
     def __init__(self):
-        self.x = {
+        self.x = { #sessions is a list of dictionaries
             "track": "spa",
             "preRaceWaitingTimeSeconds": 60,
             "sessionOverTimeSeconds": 120,
@@ -229,6 +229,18 @@ class eventJSON():
                 "sessionType": "Q",
                 "sessionDurationMinutes": 20
                 }]}
+
+    def print(self):
+        print(json.dumps(self.x))
+
+    def save(self,location):
+        filename = "event.json"
+        try:
+            file = open(filename, "w")
+            file.write(json.dumps(self.x))
+            file.close()
+        except:
+            print("error opening file")
 
     def gettrack(self):
         print(self.x["track"])
@@ -277,3 +289,11 @@ class eventJSON():
 
     def setconfigVersion(self, versionNum):
         self.x["configVersion"] = versionNum
+
+    def addSession(self, sessionType, hour, day, timeMulti, sessionLength):
+        self.x["sessions"].append()
+        
+        #make session stuff
+    # 
+
+class session():
