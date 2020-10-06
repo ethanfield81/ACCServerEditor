@@ -215,7 +215,7 @@ class eventJSON():
 
     def print(self):
         printObj = self.x
-        for i in len(self.x["sessions"]):
+        for i in range(0,len(self.x["sessions"])):
             printObj["sessions"][i] = self.x["sessions"][i].print()
         print(json.dumps(printObj))
 
