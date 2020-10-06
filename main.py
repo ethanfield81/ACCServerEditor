@@ -1,5 +1,7 @@
 import json
 import tkinter as tk
+import tkinter.ttk as ttk
+import jsonClasses as jc
 from tkinter import scrolledtext
 from tkinter import messagebox
 from tkinter.ttk import Progressbar
@@ -11,6 +13,7 @@ window = tk.Tk()
 window.title("ACC Server Editor")
 window.geometry('800x600')
 
+# first thing is indentify server folder
 lbl = tk.Label(window, text = "beans", font = ("Comic Sans",11))
 lbl.grid(column = 1, row = 0)
 
@@ -28,8 +31,40 @@ def defineDirectory():
 defineDirectory = tk.Button(window, text = "Find Directory", bg = "white", fg = "black", command = defineDirectory, font = ("Comic Sans",11))
 defineDirectory.grid(column = 0, row = 0)
 
+<<<<<<< HEAD
 #notebook = tkinter.ttk.Notebook(window, )
 
+=======
+#import from folder, previous configuration
+#instantiate new versions of JSONs, import over
+notebook = ttk.Notebook(window)
+
+#pack options for configJSON into frame
+configFrame = tk.Frame(notebook)
+#3 columns, varname, currentvalue, new value (box or selector)
+currentConfigJSON = jc.configurationJSON()
+currentConfigJSON.print()
+#some sort of import step
+udpLabel = tk.Label(configFrame, text = "UDP Port")
+udpValue = tk.Label(configFrame, text = currentConfigJSON.getudpPort())
+udpNew = tk.Entry(configFrame)
+udpLabel.grid(column = 0, row = 0)
+udpValue.grid(column = 1, row = 0)
+udpNew.grid(column = 2, row = 0)
+configFrame.pack()
+
+
+settingsFrame = tk.Frame(notebook)
+settingsFrame.pack()
+eventFrame = tk.Frame(notebook)
+eventFrame.pack()
+
+notebook.add(configFrame, text = "Configuration")
+notebook.add(settingsFrame, text = "Settings")
+notebook.add(eventFrame, text = "Event")
+
+notebook.grid(column = 0, row = 2)
+>>>>>>> b5b1edaaaf9bbd85eff619ed6ccae39ae22d5ea9
 
 menu = tk.Menu(window) 
 new_item = tk.Menu(menu) 
