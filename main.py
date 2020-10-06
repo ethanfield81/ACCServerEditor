@@ -1,3 +1,4 @@
+import json
 import tkinter as tk
 import tkinter.ttk as ttk
 import jsonClasses as jc
@@ -17,12 +18,23 @@ lbl = tk.Label(window, text = "beans", font = ("Comic Sans",11))
 lbl.grid(column = 1, row = 0)
 
 
+
 def defineDirectory():
     dir = filedialog.askdirectory()
     lbl.config(text=dir)
+    dir = dir+"/server/cfg/settings.json"
+    with open(dir) as f:
+        data = json.load(f)
+    print(data)
+    #f = open(dir)
+    #print(f)
 defineDirectory = tk.Button(window, text = "Find Directory", bg = "white", fg = "black", command = defineDirectory, font = ("Comic Sans",11))
 defineDirectory.grid(column = 0, row = 0)
 
+<<<<<<< HEAD
+#notebook = tkinter.ttk.Notebook(window, )
+
+=======
 #import from folder, previous configuration
 #instantiate new versions of JSONs, import over
 notebook = ttk.Notebook(window)
@@ -71,6 +83,7 @@ notebook.add(settingsFrame, text = "Settings")
 notebook.add(eventFrame, text = "Event")
 
 notebook.grid(column = 0, row = 2)
+>>>>>>> b5b1edaaaf9bbd85eff619ed6ccae39ae22d5ea9
 
 menu = tk.Menu(window) 
 new_item = tk.Menu(menu) 
