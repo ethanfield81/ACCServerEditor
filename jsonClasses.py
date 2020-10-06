@@ -215,7 +215,7 @@ class eventJSON():
 
     def print(self):
         printObj = self.x
-        for i in length(self.x["sessions"]):
+        for i in len(self.x["sessions"]):
             printObj["sessions"][i] = self.x["sessions"][i].print()
         print(json.dumps(printObj))
 
@@ -278,9 +278,7 @@ class eventJSON():
 
     def addSession(self, sessionType, hour, day, timeMulti, sessionLength):
         self.x["sessions"].append()
-        
-        #make session stuff
-    # 
+       
 
 class session():
     def __init__(self, sessionType, nickname):

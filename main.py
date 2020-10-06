@@ -20,6 +20,8 @@ def defineDirectory():
 defineDirectory = tk.Button(window, text = "Find Directory", bg = "white", fg = "black", command = defineDirectory, font = ("Comic Sans",11))
 defineDirectory.grid(column = 0, row = 0)
 
+notebook = tkinter.ttk.Notebook(window, )
+
 
 menu = tk.Menu(window) 
 new_item = tk.Menu(menu) 
