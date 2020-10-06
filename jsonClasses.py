@@ -1,4 +1,10 @@
 import json
+#help functions
+def boolToText(bool):
+    if bool == 1:
+        return ("Yes")
+    else:
+        return("No")
 
 #designing python objects to convert to json for the server files
 class configurationJSON():

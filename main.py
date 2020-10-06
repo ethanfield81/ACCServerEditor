@@ -39,6 +39,25 @@ udpNew = tk.Entry(configFrame)
 udpLabel.grid(column = 0, row = 0)
 udpValue.grid(column = 1, row = 0)
 udpNew.grid(column = 2, row = 0)
+
+tcpLabel = tk.Label(configFrame, text = "TCP Port")
+tcpValue = tk.Label(configFrame, text = currentConfigJSON.gettcpPort())
+tcpNew = tk.Entry(configFrame)
+tcpLabel.grid(column = 0, row = 1)
+tcpValue.grid(column = 1, row = 1)
+tcpNew.grid(column = 2, row = 1)
+
+mcLabel = tk.Label(configFrame, text = "Maximum Connections")
+mcValue = tk.Label(configFrame, currentConfigJSON.getmaxConnections())
+mcNew = tk.Entry(configFrame)
+mcLabel.grid(column = 0, row = 2)
+mcValue.grid(column = 1, row = 2)
+mcNew.grid(column = 2, row = 2)
+
+lanLabel = tk.Label(configFrame, text = "Lan Discoverability")
+lanValue = tk.Label(configFrame, text = jc.boolToText(currentConfigJSON.getlanDiscovery()))
+lanNew = tk.Checkbutton(configFrame, variable = currentConfigJSON.getlanDiscovery())
+
 configFrame.pack()
 
 
