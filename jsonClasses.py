@@ -14,7 +14,7 @@ class configurationJSON():
             }
 
     def print(self):
-        print(json.dumps(self.x))
+        return(json.dumps(self.x))
 
     def save(self,location):
         filename = "configuration.json"
@@ -23,38 +23,38 @@ class configurationJSON():
             file.write(json.dumps(self.x))
             file.close()
         except:
-            print("error opening file")
+            return("error opening file")
 
     def getudpPort(self):
-        print(self.x["udpPort"])
+        return(self.x["udpPort"])
 
     def setudpPort(self, newPort):
         self.x["udpPort"] = newPort
 
     def gettcpPort(self):
-        print(self.x["tcpPort"])
+        return(self.x["tcpPort"])
 
     def settcpPort(self, newPort):
         self.x["tcpPort"] = newPort
 
     def getmaxConnections(self):
-        print(self.x["maxConnections"])
+        return(self.x["maxConnections"])
 
     def setmaxConnections(self, maxConnect):
         if maxConnect > 1:
             if maxConnect < 85:
                 self.x["maxConnections"] = maxConnect
         else:
-            print("maxConnect not within range")
+            return("maxConnect not within range")
 
     def getlanDiscovery(self):
-        print(self.x["lanDiscovery"])
+        return(self.x["lanDiscovery"])
 
     def setlanDiscovery(self, canDiscover):
         self.x["lanDiscovery"] = canDiscover
 
     def getregisterToLobby(self):
-        print(self.x["registerToLobby"])
+        return(self.x["registerToLobby"])
 
     def setregisterToLobby(self, canRegister):
         self.x["registerToLobby"] = canRegister
@@ -88,7 +88,7 @@ class settingsJSON():
                     "formationLapType": 3
                     }
     def print(self):
-        print(json.dumps(self.x))
+        return(json.dumps(self.x))
 
     def save(self,location):
         filename = "settings.json"
@@ -97,103 +97,103 @@ class settingsJSON():
             file.write(json.dumps(self.x))
             file.close()
         except:
-            print("error opening file") 
+            return("error opening file") 
 
     def getServerName(self):
-        print(self.x["serverName"])
+        return(self.x["serverName"])
 
     def setServerName(self, newServerName):
         self.x["serverName"] = newServerName
 
     def getAdminPassword(self):
-        print(self.x["adminPassword"])
+        return(self.x["adminPassword"])
 
     def setadminPassword(self, adminPassword):
         self.x["adminPassword"] = adminPassword
 
     def getcarGroup(self):
-        print(self.x["carGroup"])
+        return(self.x["carGroup"])
 
     def setcarGroup(self, carGroup):
         self.x["carGroup"] = carGroup
 
     def gettrackMedalsRequirement(self):
-        print(self.x["trackMedalsRequirement"])
+        return(self.x["trackMedalsRequirement"])
 
     def settrackMedalsRequirement(self, trackMedalsRequirement):
         self.x["trackMedalsRequirement"] = trackMedalsRequirement
 
     def getsafetyRatingRequirement(self):
-        print(self.x["safetyRatingRequirement"])
+        return(self.x["safetyRatingRequirement"])
 
     def setsafetyRatingRequirement(self, safetyRatingRequirement):
         self.x["safetyRatingRequirement"] = safetyRatingRequirement
 
     def getracecraftRatingRequirement(self):
-        print(self.x["racecraftRatingRequirement"])
+        return(self.x["racecraftRatingRequirement"])
 
     def setracecraftRatingRequirement(self, racecraftRatingRequirement):
         self.x["racecraftRatingRequirement"] = racecraftRatingRequirement
 
     def getpassword(self):
-        print(self.x["password"])
+        return(self.x["password"])
 
     def setpassword(self, password):
         self.x["password"] = password
 
     def getspectatorPassword(self):
-        print(self.x["spectatorPassword"])
+        return(self.x["spectatorPassword"])
 
     def setspectatorPassword(self, spectatorPassword):
         self.x["spectatorPassword"] = spectatorPassword
 
     def getmaxCarSlots(self):
-        print(self.x["maxCarSlots"])
+        return(self.x["maxCarSlots"])
 
     def setmaxCarSlots(self, maxCarSlots):
         self.x["maxCarSlots"] = maxCarSlots
 
     def getdumpLeaderboards(self):
-        print(self.x["dumpLeaderboards"])
+        return(self.x["dumpLeaderboards"])
 
     def getisRaceLocked(self):
-        print(self.x["isRaceLocked"])
+        return(self.x["isRaceLocked"])
 
     def setisRaceLocked(self, isRaceLocked):
         self.x["isRaceLocked"] = isRaceLocked
 
     def getrandomizeTrackWhenEmpty(self):
-        print(self.x["randomizeTrackWhenEmpty"])
+        return(self.x["randomizeTrackWhenEmpty"])
 
     def setrandomizeTrackWhenEmpty(self, randomizeTrackWhenEmpty):
         self.x["randomizeTrackWhenEmpty"] = randomizeTrackWhenEmpty
 
     def getcentralEntryListPath(self):
-        print(self.x["centralEntryListPath"])
+        return(self.x["centralEntryListPath"])
 
     def setcentralEntryListPath(self, centralEntryListPath):
         self.x["centralEntryListPath"] = centralEntryListPath
 
     def getallowAutoDQ(self):
-        print(self.x["allowAutoDQ"])
+        return(self.x["allowAutoDQ"])
 
     def setallowAutoDQ(self, allowAutoDQ):
         self.x["allowAutoDQ"] = allowAutoDQ
 
     def getshortFormationLap(self):
-        print(self.x["shortFormationLap"])
+        return(self.x["shortFormationLap"])
 
     def setshortFormationLap(self, shortFormationLap):
         self.x["shortFormationLap"] = shortFormationLap
 
     def getdumpEntryList(self):
-        print(self.x["dumpEntryList"])
+        return(self.x["dumpEntryList"])
 
     def setdumpEntryList(self, dumpEntryList):
         self.x["dumpEntryList"] = dumpEntryList
 
     def getformationLapType(self):
-        print(self.x["formationLapType"])
+        return(self.x["formationLapType"])
 
     def setformationLapType(self, formationLapType):
         self.x["formationLapType"] = formationLapType
@@ -217,7 +217,7 @@ class eventJSON():
         printObj = self.x
         for i in range(0,len(self.x["sessions"])):
             printObj["sessions"][i] = self.x["sessions"][i].print()
-        print(json.dumps(printObj))
+        return(json.dumps(printObj))
 
     def save(self,location):
         filename = "event.json"
@@ -229,49 +229,49 @@ class eventJSON():
             print("error opening file")
 
     def gettrack(self):
-        print(self.x["track"])
+        return(self.x["track"])
 
     def settrack(self,track):
         self.x["track"] = track
 
     def getpreRaceWaitingTimeSeconds(self):
-        print(self.x["preRaceWaitingTimeSeconds"])
+        return(self.x["preRaceWaitingTimeSeconds"])
 
     def setpreRaceWaitingTimeSeconds(self, preRaceWaitingTimeSeconds):
         self.x["preRaceWaitingTimeSeconds"] = preRaceWaitingTimeSeconds
 
     def getsessionOverTimeSeconds(self):
-        print(self.x["sessionOverTimeSeconds"])
+        return(self.x["sessionOverTimeSeconds"])
 
     def setsessionOverTimeSeconds(self, sessionOverTimeSeconds):
         self.x["sessionOverTimeSeconds"] = sessionOverTimeSeconds
 
     def getambientTemp(self):
-        print(self.x["ambientTemp"])
+        return(self.x["ambientTemp"])
 
     def setambientTemp(self, ambientTemp):
         self.x[ambientTemp] = ambientTemp
 
     def getcloudLevel(self):
-        print(self.x["cloudLevel"])
+        return(self.x["cloudLevel"])
 
     def setcloudLevel(self, cloudLevel):
         self.x["cloudLevel"] = cloudLevel
 
     def getrain(self):
-        print(self.x["rain"])
+        return(self.x["rain"])
 
     def setrain(self, rain):
         self.x["rain"] = rain
 
     def getweatherRandomness(self):
-        print(self.x["weatherRandomness"])
+        return(self.x["weatherRandomness"])
 
     def setweatherRandomness(self, weatherRandomness):
         self.x["weatherRandomness"] = weatherRandomness
 
     def getconfigVersion(self):
-        print(self.x["configVersion"])
+        return(self.x["configVersion"])
 
     def setconfigVersion(self, versionNum):
         self.x["configVersion"] = versionNum
@@ -308,37 +308,40 @@ class session():
                 "sessionDurationMinutes": 20
                 }
         else:
-            print("SessionTypeError")
+            return("SessionTypeError")
 
     def print(self):
-        print(json.dumps(self.x))
+        return(json.dumps(self.x))
 
     def gethourOfDay(self):
-        print(self.x["hourOfDay"])
+        return(self.x["hourOfDay"])
 
     def sethourOfDay(self, newTime):
         self.x["hourOfDay"] = newTime
 
     def getdayOfWeekend(self):
-        print(self.x["dayOfWeekend"])
+        return(self.x["dayOfWeekend"])
 
     def setdayOfWeekend(self, newTime):
         self.x["dayOfWeekend"] = newTime
      
     def gettimeMultiplier(self):
-        print(self.x["timeMultiplier"])
+        return(self.x["timeMultiplier"])
 
     def settimeMultiplier(self, newTime):
         self.x["timeMultiplier"] = newTime
 
     def getsessionType(self):
-        print(self.x["sessionType"])
+        return(self.x["sessionType"])
 
     def setsessionType(self, newTime):
         self.x["sessionType"] = newTime
      
     def getsessionDurationMinutes(self):
-        print(self.x["sessionDurationMinutes"])
+        return(self.x["sessionDurationMinutes"])
 
     def setsessionDurationMinutes(self, newTime):
         self.x["sessionDurationMinutes"] = newTime
+
+
+# still need to add assistRules.json
