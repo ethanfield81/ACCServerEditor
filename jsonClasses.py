@@ -5,7 +5,6 @@ def boolToText(bool):
         return ("Yes")
     else:
         return("No")
-
 #designing python objects to convert to json for the server files
 class configurationJSON():
     """Object to store server information"""
@@ -18,6 +17,13 @@ class configurationJSON():
             "registerToLobby": 1,
             "configVersion": 1
             }
+    def importJSON(self,dir):
+        dir = dir+"/configuration.json"
+        with open(dir) as f:
+            readdata = f.read()
+            print(readdata)
+            data = json.loads(readdata)
+        print(json.dumps(data))
 
     def print(self):
         return(json.dumps(self.x))
@@ -93,6 +99,12 @@ class settingsJSON():
                     "dumpEntryList": 0,
                     "formationLapType": 3
                     }
+    def importJSON(self,dir):
+        dir = dir+"/settings.json"
+        with open(dir) as f:
+            data = json.load(f)
+        print(json.dumps(data))
+        
     def print(self):
         return(json.dumps(self.x))
 
@@ -218,6 +230,12 @@ class eventJSON():
             "configVersion": 1,
             "sessions": [session("P", "Default Practice"), session("Q", "Default Qualifying"), session("R", "Default Race")]
             }
+    def importJSON(self,dir):
+        dir = dir+"/event.json"
+        with open(dir) as f:
+            data = json.load(f)
+        print(json.dumps(data))
+
 
     def print(self):
         printObj = self.x
