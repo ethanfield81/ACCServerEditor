@@ -18,12 +18,15 @@ class configurationJSON():
             "configVersion": 1
             }
     def importJSON(self,dir):
-        dir = dir+"/configuration.json"
+        dir = dir+"/event.json"
+        j = json.JSONDecoder()
         with open(dir) as f:
             readdata = f.read()
             print(readdata)
-            data = json.loads(readdata)
+            datatry = j.decode(readdata)
+            data = json.load(file)
         print(json.dumps(data))
+        print(json.dumps(datatry))
 
     def print(self):
         return(json.dumps(self.x))
@@ -53,8 +56,8 @@ class configurationJSON():
         return(self.x["maxConnections"])
 
     def setmaxConnections(self, maxConnect):
-        if maxConnect > 1:
-            if maxConnect < 85:
+        if int(maxConnect) > 1:
+            if int(maxConnect) < 85:
                 self.x["maxConnections"] = maxConnect
         else:
             return("maxConnect not within range")
@@ -117,13 +120,13 @@ class settingsJSON():
         except:
             return("error opening file") 
 
-    def getServerName(self):
+    def getserverName(self):
         return(self.x["serverName"])
 
-    def setServerName(self, newServerName):
+    def setserverName(self, newServerName):
         self.x["serverName"] = newServerName
 
-    def getAdminPassword(self):
+    def getadminPassword(self):
         return(self.x["adminPassword"])
 
     def setadminPassword(self, adminPassword):
